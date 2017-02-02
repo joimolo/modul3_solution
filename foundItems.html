@@ -1,0 +1,29 @@
+
+<!-- nothing is found as a result of the search OR if the user leaves the textbox empty -->
+<div ng-if='ctrl.showError' class='error'>Nothing found</div>
+<div ng-if="!ctrl.pvez">
+<!--List items -->
+<table ng-if="!ctrl.showError" class="table table-striped">
+  <tr>
+    <th>Menu</th>
+    <th>Sort Name</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
+  <tr ng-repeat="item in ctrl.items">
+    <td>
+      {{item.short_name}}
+    </td>
+    <td>
+      {{item.name}}
+    </td>
+    <td>
+      {{item.description}}
+    </td>
+    <td>
+      <button ng-click="ctrl.onRemove({index: $index});"
+          class="btn btn-sm btn-default">Don't want this one!</button>
+    </td>
+  </tr>
+</table>
+</div>
